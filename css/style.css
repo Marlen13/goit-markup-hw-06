@@ -826,6 +826,7 @@ h1, h2, h3, h4, h5, h6, p {
 .modal-title {
     margin-bottom: 12px;
 
+    font-weight: 700;
     font-size: 20px;
     line-height: 1.15;
     text-align: center;
@@ -836,25 +837,34 @@ h1, h2, h3, h4, h5, h6, p {
     
     width:448px;
 }
-.form-group {
 
-   
-    
-}
 .form-field {
+  
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     outline: 1px solid red;
 
 }
-
-
-.form-input {
-    padding: 0;
-    width: 100%;
+.form-group .form-field:last-child {
+    margin-bottom: 28px;
 }
 
+.form-input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+}
+
+.form-field:focus-within > .form-input {
+    border: 1px solid var(--accent-text-color);
+}
+.form-tumb {
+    position: relative;
+}
 .form-span {
     display: inline-block;
     margin-bottom: 4px;
@@ -863,6 +873,66 @@ h1, h2, h3, h4, h5, h6, p {
     line-height: 1.17;
     
     color: var(--secondary-text-color);
+}
+
+.form-icon {
+    position: absolute;
+    content:'';
+    top: 50%;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+  
+}
+/*
+.agreement-thumb {
+    margin-bottom: 40px;
+}
+*/
+.form-agreement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 40px;
+}
+.form-agreement-text {
+    user-select: none;
+    color:var(--secondary-text-color)
+}
+.form-agreement-link {
+    color:var(--accent-text-color);
+}
+.checkbox {
+    appearance: none;
+    width: 16px;
+    height: 15px;
+    cursor: pointer;
+    border: 2px solid var(--main-text-color);
+    border-radius: 2px;
+    
+}
+.check-sign .unchecked {
+    opacity: 1;
+}
+.check-sign .checked {
+    opacity: 0;
+}
+.checkbox:checked .check-sign .unchecked {
+    opacity: 0;
+}
+.checkbox:checked .check-sign .checked {
+    opacity: 1;
+}
+
+/*
+.checkbox:checked {
+    background-color:var(--accent-text-color);
+    border-color: transparent;*/
+
+.modal-btn {
+    display: block;
+    margin: 0 auto;
 }
 /*animation
 @keyframes slide-to-bottom {
