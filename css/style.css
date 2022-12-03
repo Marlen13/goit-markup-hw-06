@@ -815,7 +815,18 @@ h1, h2, h3, h4, h5, h6, p {
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
+    transition: color var(--hover-duration) var(--transition-function);
+
 }
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--accent-text-color);
+}
+.close-modal-icon {
+    fill:currentColor;
+}
+
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
@@ -866,14 +877,23 @@ h1, h2, h3, h4, h5, h6, p {
     padding-left: 40px;
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
+    
+    transition: border-color var(--hover-duration) var(--transition-function);
+}
+
+.form-field:focus-within > .form-textarea {
+    border: 1px solid var(--accent-text-color);
+    outline: transparent;
 }
 
 .form-field:focus-within > .form-input {
     border: 1px solid var(--accent-text-color);
+    outline: transparent;
 }
-.form-field:focus-within > .form-input > .form-icons {
-    fill: var(--accent-text-color);
+.form-input:focus + .form-icons {
+    background-color: var(--accent-text-color);
 }
+
 
 .form-tumb {
     position: relative;
@@ -891,11 +911,28 @@ h1, h2, h3, h4, h5, h6, p {
 .form-icon {
     position: absolute;
     content:'';
+    display: inline-block;
     top: 50%;
     left: 12px;
     width: 18px;
     height: 18px;
   
+}
+
+.form-textarea {
+    padding: 12px 16px;
+    font-size: 12px;
+    line-height: 1.17;
+    text-align: left;
+    
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+}
+
+.form-textarea::placeholder {
+    font-size: 12px;
+    line-height: 1.17;
+    color: rgba(117, 117, 117, 0.5);
 }
 /*
 .agreement-thumb {
@@ -918,12 +955,12 @@ h1, h2, h3, h4, h5, h6, p {
     color:var(--accent-text-color);
 }
 .checkbox {
-    appearance: none;
+   
     width: 16px;
     height: 15px;
     cursor: pointer;
-    border: 2px solid var(--main-text-color);
-    border-radius: 2px;
+
+    transition: opacity var(--hover-duration) var(--transition-function);
     
 }
 
@@ -933,10 +970,10 @@ h1, h2, h3, h4, h5, h6, p {
 .check-sign .checked {
     opacity: 0;
 }
-.checkbox:checked .check-sign .unchecked {
+.checkbox:checked + .check-sign .unchecked {
     opacity: 0;
 }
-.checkbox:checked .check-sign .checked {
+.checkbox:checked + .check-sign .checked {
     opacity: 1;
 }
 
